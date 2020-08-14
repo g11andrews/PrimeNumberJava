@@ -75,7 +75,7 @@ public class Generator implements PrimeNumberGenerator
 	public boolean isPrime(int n) 
 	{
 		 int counter=0; 	  
-         for(int i =n; i>=1; i--)
+		 for(int i =n; i>=1; i--)
 		  {
 	         if(n%i==0)
 		     {
