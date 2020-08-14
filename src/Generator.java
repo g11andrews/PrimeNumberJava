@@ -55,7 +55,10 @@ public class Generator implements PrimeNumberGenerator
 	    	startingValue+=endingValue;
 	    	endingValue=0;
 	    	endingValue+=temp;
+	    	this.setStop(endingValue);
+	    	this.setStart(startingValue);
 	    }
+		
 		List<Integer> primes = new ArrayList<Integer>();
 		for (Integer i = startingValue; i <= endingValue; i++)         
 	       { 		  	  
@@ -69,17 +72,17 @@ public class Generator implements PrimeNumberGenerator
 	}
 
 	@Override
-	public boolean isPrime(int value) 
+	public boolean isPrime(int n) 
 	{
 		 int counter=0; 	  
-         for(int num =value; num>=1; num--)
+         for(int i =n; i>=1; i--)
 		  {
-	         if(value%num==0)
+	         if(n%i==0)
 		     {
-	        	 counter = counter + 1;
+	        	 counter++;
 		     }
 		  }
-		  if (counter ==2)
+		  if (counter==2)
 		  {
 		     return true;
 		  }	
@@ -90,7 +93,8 @@ public class Generator implements PrimeNumberGenerator
 	//the final return method to display primes
 	void printPrimes() 
 	{
-		System.out.println("Primes from "+start+" to "+stop+": "+generate(start,stop).toString());
+		String output=generate(start,stop).toString();
+		System.out.println("Primes from "+start+" to "+stop+": "+output);
 	}
 	
 }
